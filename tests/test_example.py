@@ -6,6 +6,7 @@ Copy this pattern for your own tests!
 import pytest
 import pandas as pd
 
+
 @pytest.fixture
 def sample_df():
     """Sample DataFrame for testing."""
@@ -13,6 +14,7 @@ def sample_df():
         'id': [1, 2, 3],
         'name': ['Alice', 'Bob', 'Charlie']
     })
+
 
 def test_example(sample_df):
     """Example test - shows pytest working."""
