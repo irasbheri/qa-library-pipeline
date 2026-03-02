@@ -5,6 +5,7 @@ This module handles loading data from various file formats.
 import pandas as pd
 import json
 import logging
+
 from pathlib import Path
 
 # Set up logging
@@ -37,7 +38,7 @@ def load_csv(filepath, **kwargs):
         raise FileNotFoundError(f"File not found: {filepath}")
 
     try:
-        logger.info(f"XXXXXXXXXX Loading CSV from {filepath}")
+        logger.info(f" Loading CSV from {filepath}")
         df = pd.read_csv(filepath, **kwargs)
         logger.info(f"Successfully loaded {len(df)} rows from {filepath}")
         return df
@@ -99,11 +100,13 @@ def load_excel(filepath, sheet_name=0, **kwargs):
 
     Args:
         filepath (str | Path): Path to Excel file
-        sheet_name (str | int | list[str | int] | None): Sheet(s) to read, same as pandas.read_excel()
+        sheet_name (str | int | list[str | int] | None):
+            Sheet(s) to read, same as pandas.read_excel()
         **kwargs: Additional arguments for pd.read_excel()
 
     Returns:
-        pd.DataFrame | dict[str, pd.DataFrame]: Loaded data. Dict when multiple sheets requested.
+        pd.DataFrame | dict[str, pd.DataFrame]: Loaded data.
+           Dict when multiple sheets requested.
 
     Raises:
         FileNotFoundError: If file doesn't exist
